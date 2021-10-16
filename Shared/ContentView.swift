@@ -6,10 +6,11 @@
 //
 
 import SwiftUI
+import KotlinNativeTrialCore
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
+        Text("Hello, world! \(Singleton().property)")
                 .padding()
     }
 }

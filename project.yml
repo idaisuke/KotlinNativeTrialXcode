@@ -24,6 +24,8 @@ targets:
     scheme:
       testTargets:
         - Tests_${platform}
+    dependencies:
+      - package: KotlinNativeTrialCore
   Tests:
     type: bundle.ui-testing
     platform:
@@ -33,3 +35,7 @@ targets:
       - Tests_${platform}
     dependencies:
       - target: KotlinNativeTrialXcode_${platform}
+packages:
+  KotlinNativeTrialCore:
+    branch: main
+    github: idaisuke/KotlinNativeTrialCore
