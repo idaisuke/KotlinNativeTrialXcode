@@ -1,0 +1,35 @@
+name: KotlinNativeTrialXcode
+options:
+  createIntermediateGroups: true
+  defaultConfig: Debug
+  groupSortPosition: top
+configs:
+  Debug: debug
+  Release: release
+targets:
+  KotlinNativeTrialXcode:
+    type: application
+    platform:
+      - iOS
+      - macOS
+    deploymentTarget:
+      iOS: 15.0
+      macOS: 11.0
+    sources:
+      - ${platform}
+      - Shared
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: me.daisuke.kotlin-native-trial.xcode
+    scheme:
+      testTargets:
+        - Tests_${platform}
+  Tests:
+    type: bundle.ui-testing
+    platform:
+      - iOS
+      - macOS
+    sources:
+      - Tests_${platform}
+    dependencies:
+      - target: KotlinNativeTrialXcode_${platform}
